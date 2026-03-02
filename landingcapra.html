@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAPRA | Rionegro</title>
+  <meta name="description" content="CAPRA se está moviendo en Rionegro. Pide tu servicio por WhatsApp." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#121826;
+      --text:#e7eef7;
+      --muted:#a8b3c4;
+      --line:#223047;
+      --accent:#2465E8;
+      --accent2:#2fe27a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(36,101,232,.22), transparent 60%),
+                  radial-gradient(1000px 500px at 80% 40%, rgba(47,226,122,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.4;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 70px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800; letter-spacing:.4px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(36,101,232,.9), rgba(47,226,122,.65));
+      display:grid; place-items:center; box-shadow: var(--shadow);
+      font-weight:900;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border:1px solid rgba(255,255,255,.08);
+      border-radius:999px; background: rgba(255,255,255,.04);
+      color:var(--muted); font-size:14px;
+    }
+    .hero{
+      margin-top:16px;
+      display:grid; grid-template-columns: 1.25fr .85fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: rgba(18,24,38,.78);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-left{padding:26px}
+    h1{
+      margin:0 0 10px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    @media (max-width: 520px){
+      h1{font-size:36px}
+    }
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      margin: 0 0 18px;
+      max-width: 60ch;
+    }
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      font-weight:700;
+      transition: transform .08s ease, background .2s ease, border .2s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn:active{transform: translateY(0px)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(36,101,232,.95), rgba(36,101,232,.55));
+      border-color: rgba(36,101,232,.55);
+    }
+    .btn.whatsapp{
+      background: linear-gradient(135deg, rgba(47,226,122,.95), rgba(47,226,122,.55));
+      border-color: rgba(47,226,122,.55);
+      color:#082012;
+    }
+    .mini{
+      font-size:13px; color:var(--muted); margin-top:14px;
+    }
+    .grid3{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:12px; margin-top:18px;
+    }
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .feature{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+    .feature b{display:block; margin-bottom:6px}
+    .feature p{margin:0; color:var(--muted); font-size:14px}
+
+    .hero-right{padding:18px}
+    .panel{
+      padding:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .panel:first-child{border-top:none}
+    .panel h3{margin:0 0 10px; font-size:16px}
+    .steps{
+      display:grid; gap:10px;
+    }
+    .step{
+      display:flex; gap:10px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .num{
+      width:28px; height:28px; border-radius:10px;
+      display:grid; place-items:center;
+      background: rgba(36,101,232,.18);
+      border:1px solid rgba(36,101,232,.35);
+      color: #b9d0ff;
+      font-weight:800;
+      flex: 0 0 auto;
+    }
+    .step div{font-size:14px; color:var(--muted)}
+    .step div b{color:var(--text)}
+    .section{
+      margin-top:18px;
+      padding:22px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .section p{margin:0 0 10px; color:var(--muted)}
+    .faq{display:grid; gap:10px; margin-top:12px}
+    details{
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:12px 14px;
+    }
+    summary{cursor:pointer; font-weight:700}
+    details p{margin:10px 0 0; color:var(--muted); font-size:14px}
+    .footer{
+      margin-top:18px; color:var(--muted);
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+      font-size:13px;
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .small-link{opacity:.9}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">🐐</div>
+        <div>
+          <div style="font-size:16px; font-weight:900;">CAPRA</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:2px;">Rionegro, Antioquia</div>
+        </div>
+      </div>
+
+      <div class="pill">
+        <span>⏰</span>
+        <span>Operamos</span>
+        <b style="color:var(--text); font-weight:800;">8:00 a.m. – 10:00 p.m.</b>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="pill" style="width:max-content; margin-bottom:14px;">
+          <span>📍</span><span>Hoy</span><b style="color:var(--text); font-weight:800;">CAPRA se está moviendo en Rionegro</b>
+        </div>
+
+        <h1>Cuando el tiempo importa,<br/>escríbenos y listo.</h1>
+        <p class="lead">
+          CAPRA funciona por WhatsApp en esta etapa. Nos dices <b>tu ubicación</b> y <b>tu destino</b>, y te ayudamos a moverte de forma rápida y clara.
+          (Sin vueltas, sin enredos.)
+        </p>
+
+        <div class="cta-row">
+          <a class="btn whatsapp" id="btn-whatsapp-hero" href="#" target="_blank" rel="noopener">
+            💬 Pedir servicio por WhatsApp
+          </a>
+          <a class="btn primary" id="btn-how" href="#como-funciona">
+            ⚡ Cómo funciona
+          </a>
+          <a class="btn" id="btn-faq" href="#preguntas">
+            ❓ Preguntas frecuentes
+          </a>
+        </div>
+
+        <div class="grid3">
+          <div class="feature">
+            <b>📌 Local y cercano</b>
+            <p>Atención humana. Rionegro primero.</p>
+          </div>
+          <div class="feature">
+            <b>💰 Precios claros</b>
+            <p>Te confirmamos el valor antes de arrancar.</p>
+          </div>
+          <div class="feature">
+            <b>🛡️ Con cuidado</b>
+            <p>Enfoque en respeto, seguridad y orden.</p>
+          </div>
+        </div>
+
+        <p class="mini">WhatsApp: <b style="color:var(--text)">315 919 9101</b> · Si escribes fuera del horario, te respondemos en cuanto volvamos a estar activos.</p>
+      </div>
+
+      <div class="card hero-right">
+        <div class="panel">
+          <h3 id="como-funciona">✅ Cómo pedir CAPRA (en 30 segundos)</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <div><b>Escríbenos</b><br/>Dinos tu <b>ubicación</b> y tu <b>destino</b>.</div>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <div><b>Confirmamos</b><br/>Te respondemos con el <b>valor</b> y la disponibilidad.</div>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <div><b>Te movemos</b><br/>Asignamos conductor y te acompañamos en el proceso.</div>
+            </div>
+          </div>
+
+          <div class="cta-row" style="margin-top:14px;">
+            <a class="btn whatsapp" id="btn-whatsapp-steps" href="#" target="_blank" rel="noopener">
+              💬 Pedir por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>📍 Qué debes enviar (para que sea rápido)</h3>
+          <div class="feature" style="margin-top:10px;">
+            <p style="margin:0; color:var(--muted);">
+              1) Ubicación actual (ideal si mandas ubicación en tiempo real)<br/>
+              2) Destino<br/>
+              3) Método de pago (efectivo o transferencia)
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>🚀 Si quieres conducir con CAPRA</h3>
+          <p style="margin:0 0 12px; color:var(--muted); font-size:14px;">
+            Estamos armando el grupo operativo. Escríbenos y te contamos requisitos.
+          </p>
+          <a class="btn primary" id="btn-driver" href="#" target="_blank" rel="noopener">🧑‍✈️ Quiero conducir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card section" id="preguntas">
+      <h2>Preguntas frecuentes</h2>
+      <p>Respuestas cortas y claras (como nos gusta).</p>
+
+      <div class="faq">
+        <details>
+          <summary>¿CAPRA es una app?</summary>
+          <p>CAPRA está en etapa de lanzamiento. Por ahora atendemos principalmente por WhatsApp, mientras terminamos de ajustar el sistema completo. La idea es migrar todo a la app.</p>
+        </details>
+
+        <details>
+          <summary>¿Cómo se define el valor del servicio?</summary>
+          <p>Te confirmamos el valor antes de iniciar el recorrido. Buscamos que sea claro y justo para el usuario y para el conductor.</p>
+        </details>
+
+        <details>
+          <summary>¿En qué horario están activos?</summary>
+          <p>Operamos de 8:00 a.m. a 10:00 p.m. Fuera de ese horario atendemos servicios programados y respondemos al volver a estar activos.</p>
+        </details>
+
+        <details>
+          <summary>¿Puedo escribir solo para preguntar?</summary>
+          <p>Claro. Escríbenos, dinos qué necesitas y te orientamos.</p>
+        </details>
+      </div>
+
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="btn whatsapp" id="btn-whatsapp-faq" href="#" target="_blank" rel="noopener">💬 Hablar por WhatsApp</a>
+        <a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">⬆️ Volver arriba</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="tag">🐐 CAPRA · Rionegro</div>
+      <div class="tag">📲 WhatsApp: 315 919 9101</div>
+      <div class="tag">⏰ 8:00 a.m. – 10:00 p.m.</div>
+      <div class="small-link">© <span id="year"></span> CAPRA</div>
+    </div>
+  </div>
+
+  <script>
+    // --- WhatsApp links ---
+    // WhatsApp requires E.164 format for wa.me: Colombia +57 + number (no spaces)
+    const waNumber = "573159199101";
+
+    function waLink(message){
+      const text = encodeURIComponent(message);
+      return `https://wa.me/${waNumber}?text=${text}`;
+    }
+
+    // Default message for service request
+    const msgService = `Hola CAPRA 👋
+Quiero pedir un servicio.
+📍 Mi ubicación es:
+📍 Mi destino es:
+💳 Pago: (efectivo/transferencia)`;
+
+    // Message for driver interest
+    const msgDriver = `Hola CAPRA 👋
+Quiero información para conducir con ustedes.
+Tengo:
+✅ Edad:
+✅ Ciudad:
+✅ Vehículo: (moto/carro)
+✅ Modelo:
+¿Me comparten requisitos y pasos?`;
+
+    // Assign links to buttons
+    const btnsService = ["btn-whatsapp-hero","btn-whatsapp-steps","btn-whatsapp-faq"];
+    btnsService.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = waLink(msgService);
+    });
+
+    const btnDriver = document.getElementById("btn-driver");
+    if (btnDriver) btnDriver.href = waLink(msgDriver);
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
